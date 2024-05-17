@@ -1,93 +1,59 @@
-# HiggsDNA_FinalFits_Tutorial_24
+# HiggsDNA and FinalFits Tutorial June 2024
 
+`HiggsDNA` and `FinalFits` run on any contemporary scientific linux machine. You are free to follow the tutorial from the computing infrastructure of your choice, but we highly recommend that you use `lxplus` (v9!) since we designed and tested the tutorial on `lxplus`.
 
+Please make sure that you have deposited a valid ssh key for your CERN Gitlab account and that your private key is also present in the `~/.ssh/` directory and the host `gitlab.cern.ch` is entered in the `~/.ssh/config` file. For more information, consult https://docs.gitlab.com/ee/user/ssh.html.
+If the setup with the `ssh` key does not work for you, you can also clone this repository over `https`. In that case, adjust the command below appropriately.
 
-## Getting started
+This repository contains submodules.
+Please clone the repository with the `--recurse-submodules` command to ensure that the `HiggsDNA` submodule is cloned appropriately.
+We recommend that you clone this repository in your `eos` space to avoid reaching your quota in the `afs` home directory.
+You can reach your area at `/eos/user/<first_letter_of_your_CERN_username>/<your_CERN_username>/`.
+For more information on the personal `eos` area, also known as CERNBox, please refer to https://cern.service-now.com/service-portal?id=service_element&name=CERNBox-Service.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+If you are happy with the chosen location, execute the following command:
 ```
-cd existing_repo
-git remote add origin https://gitlab.cern.ch/jspah/higgsdna_finalfits_tutorial_24.git
-git branch -M master
-git push -uf origin master
+git clone --recurse-submodules ssh://git@gitlab.cern.ch:7999/jspah/higgsdna_finalfits_tutorial_24.git
 ```
 
-## Integrate with your tools
+## Connecting via VSCode
 
-- [ ] [Set up project integrations](https://gitlab.cern.ch/jspah/higgsdna_finalfits_tutorial_24/-/settings/integrations)
+Of course, you can follow the tutorial however you want.
+In the most basic setup, you can plainly use the shell and work with `nano` or `vi` and then `scp` any plots that you want to view.
+For reasons of convenience, we recommend you to use `VSCode`, however.
+This is a modern editor sith powerful extensions that allows you to view plots and edit code almost effortlessly and combines an `sftp` browser and terminal sessions.
 
-## Collaborate with your team
+To set up VSCode, download it from the official website https://code.visualstudio.com/download for your respective operating system.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Then, install the `Remote - SSH` extension. For more extensive information, see https://code.visualstudio.com/docs/remote/ssh, we just describe the basic setup steps here.
 
-## Test and Deploy
+In the left-most column of VSCode, you should see a new icon now, a monitor with an ssh button at the bottom right. Click on it and you see the ssh overview. Mouse-over the `SSH` field in the `REMOTES (TUNNELS/SSH)` category, click on the gear symbol and check your `config`. Make sure that it includes an entry for `lxplus`, e.g.,
 
-Use the built-in continuous integration in GitLab.
+```
+Host lxplus
+  HostName lxplus.cern.ch
+  User <your_CERN_username>
+  ForwardX11 yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 30
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+You can then try to connect to `lxplus` if you expand the options in the `SSH` field. If that worked, you can even open a specific directory (we recommend that you work in your CERNbox `eos` area for this tutorial) in VSCode! Make sure to explore further extensions like a PDF browser or linters for `bash` and `python` to make your life easier.
 
-***
+Note that `VSCode` is known to have some weird behaviour from time to time with `lxplus` due to the way the CERN computing infrastructure is set up. If `VSCode` keeps asking you for your password if you want to connect and does not let you in, connect to `lxplus` in a standalone shell and execute
 
-# Editing this README
+```
+rm -r .vscode-server/
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+This removes the `vscode-server` installation from the remote and forces `VSCode` to start from scratch when you ask to connect to `lxplus`. This often resolves issues with connections to `lxplus`.
 
-## Suggestions for a good README
+If `VSCode` does not work for you or you do not like it, you can also consider the alternatives `MobaXterm` for Windows (https://mobaxterm.mobatek.net) and `PyCharm` for all systems (https://www.jetbrains.com/de-de/pycharm/).
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## HiggsDNA Part
 
-## Name
-Choose a self-explaining name for your project.
+### Setting up your working environment
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Please follow the instructions outlined in the `README.md` in the `00_HiggsDNA_setup` subdirectory to set up and test your HiggsDNA installation.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## FinalFits Part
