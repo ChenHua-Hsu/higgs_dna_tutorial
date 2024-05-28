@@ -57,7 +57,6 @@ Note that `tmux` sessions close by default if you log out on lxplus9.
 If you want to keep them alive, run the setup on lxplus8.
 
 ```
-cd HiggsDNA
 micromamba env create --prefix micromamba_dir/envs/higgs-dna -f HiggsDNA/environment.yml
 ```
 
