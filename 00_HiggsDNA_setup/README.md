@@ -61,9 +61,10 @@ micromamba env create --prefix micromamba_dir/envs/higgs-dna -f HiggsDNA/environ
 ```
 
 You have to confirm the installation with `Y` after the initial collection of packages from the `conda-forge` channel.
-Note that we install the environment in a a different location compared to the default (which would be in your home) as disk space in the home directory is a scarce ressource on lxplus. 
+Note that we install the environment in a a different location compared to the default (which would be in your home) as disk space in the home directory is a scarce ressource on lxplus.
 
-After the installation has finished, test it. You can find the expected output below.
+After the installation has finished, test it.
+You can find the expected output below.
 ```
 (base) [jspah@lxplus903 higgsdna_finalfits_tutorial_24]$ micromamba activate higgs-dna 
 (higgs-dna) [jspah@lxplus903 higgsdna_finalfits_tutorial_24]$ python
@@ -73,6 +74,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> coffea.__version__
 '0.7.22'
 ```
+Note: If everything went according to plan, `micromamba activate higgs-dna` is the correct command to activate your environment.
+If it does not work, please carefully check the printout of `micromamba` after installing the environment.
+There, he will say `To activate this environment, use:` and give you the exact command to use.
 
 ### Docker image
 
