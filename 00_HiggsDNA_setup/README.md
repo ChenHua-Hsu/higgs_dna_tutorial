@@ -7,7 +7,8 @@ General installation instructions are available at https://higgs-dna.readthedocs
 ## Setting up the environment
 
 For this tutorial, we propose two main options, which are already outlined at the above link, to set up your software environment for HiggsDNA.
-The two options are using a micromamba environment (preferred) or using a docker image (alternative).
+The two options are using a micromamba environment or using apptainer.
+The tutorial has been set up and tested using the first approach, so we would recommend to give that a go first, although both approaches are valid.
 
 If you already have a working environment to run HiggsDNA in, you can skip this step and go straight to the "Installing HiggsDNA" step.
 
@@ -17,7 +18,7 @@ If you already have a working micromamba installation on lxplus, skip straight a
 
 #### Setting up micromamba
 
-<add motivation for micromamba compared to conda>
+We suggest to use the `micromamba` software to install an environment for HiggsDNA to thrive in. It is a faster, standalone version of `conda`.
 
 Follow the instruction for the automatic install provided at https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install.
 This means: Execute
@@ -78,22 +79,20 @@ Note: If everything went according to plan, `micromamba activate higgs-dna` is t
 If it does not work, please carefully check the printout of `micromamba` after installing the environment.
 There, he will say `To activate this environment, use:` and give you the exact command to use.
 
-### Docker image
+### Apptainer
 
-TODO: FINISH THIS SECTION
-
-First, create the directory to store the apptainer cache:
-
+`Apptainer` is another possibility if you do not want to use `micromamba` or it does not work for you.
+You can always start a shell with an image of our latest build of HiggsDNA with
 ```
-mkdir apptainer-cache
+apptainer shell -B /eos/user/<letter>/<username>/<path_to_higgsdna_finalfits_tutorial_24> -B /afs -B /cvmfs/cms.cern.ch -B /tmp  -B /eos/cms/  -B /etc/sysconfig/ngbauth-submit -B ${XDG_RUNTIME_DIR}  --env KRB5CCNAME="FILE:${XDG_RUNTIME_DIR}/krb5cc" /cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/higgsdna-project/higgsdna:latest
 ```
-
+This is a very lightweight method, but it is arguably not as flexible because you rely on the latest version. You can run HiggsDNA commands in this `apptainer` shell, so you can try to run
 ```
-SINGULARITY_CACHEDIR=./apptainer-cache apptainer shell --bind /afs -B /cvmfs/cms.cern.ch \
---bind /tmp --bind /eos/cms/ \
---env KRB5CCNAME=$KRB5CCNAME --bind /etc/sysconfig/ngbauth-submit \
-docker://gitlab-registry.cern.ch/higgsdna-project/higgsdna:lxplus-c1fd1280
+run_analysis.py --help
 ```
+for example.
+Note that `run_analysis.py` is invoked as an executable script and need not be found anywhere in your directory.
+Because you mounted your tutorial directory with the `-B` argument, you can also execute plotting scripts (that we will use later in the tutorial) inside such a shell. If you also want to develop, you should also install HiggsDNA in editable mode, see the Section below for that.
 
 ## Installing HiggsDNA
 
