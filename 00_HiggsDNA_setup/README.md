@@ -124,3 +124,5 @@ pytest
 ```
 
 If that worked, you are all set from the HiggsDNA side!
+
+NB: With the apptainer setup, tests can fail due to issues with xgboost, as explained in https://higgs-dna.readthedocs.io/en/latest/installation.html#docker-singularity. You do not need to worry about that.
