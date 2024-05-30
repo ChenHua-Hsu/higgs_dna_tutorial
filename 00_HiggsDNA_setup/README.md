@@ -28,11 +28,17 @@ This means: Execute
 ```
 
 in the root directory of the tutorial repository.
-He will ask you a serious of questions to determine your preferred setup.
-Please specify a location in `eos` for the micromamba prefix as it can take up quite some space and the quota of the home directory is limited on lxplus.
+He will ask you a serious of questions to determine your preferred setup. Please answer as follows:
+
+```
+Micromamba binary folder? [~/.local/bin] 
+Init shell (bash)? [Y/n] Y
+Configure conda-forge? [Y/n] Y
+Configure conda-forge? [~/micromamba] ./micromamba_dir
+```
+
+We specify a location in `eos` for the micromamba prefix as it can take up quite some space and the quota of the home directory is limited on lxplus.
 The binary folder can be in your home as it does not take up a lot of space.
-For these example instructions, we used `./micromamba_dir` in the root directory of the repository.
-Please also answer `Y` when prompted for `Init shell` and `Configure conda-forge`.
 If this was successful, you will receive some printout about appending lines to your `~/.bashrc`, this is intended. Please use a clean shell now or run
 
 ```
