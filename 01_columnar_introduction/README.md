@@ -68,7 +68,7 @@ Let us try **SWAN**.
 2. Copy the notebook to your local folder, i.e., run 
 
     ```
-    cp -r /afs/cern.ch/work/j/jixiao/public/hgg_tutorial/01_columnar_introduction .
+    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/01_columnar_introduction .
     ```
 
 3. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
