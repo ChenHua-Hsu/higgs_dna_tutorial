@@ -24,7 +24,6 @@ Follow the instruction for the automatic install provided at https://mamba.readt
 This means: Execute
 
 ```
-cd higgsdna_finalfits_tutorial_24
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 ```
 
@@ -35,7 +34,7 @@ He will ask you a serious of questions to determine your preferred setup. Please
 Micromamba binary folder? [~/.local/bin] 
 Init shell (bash)? [Y/n] Y
 Configure conda-forge? [Y/n] Y
-Configure conda-forge? [~/micromamba] /eos/user/home-<letter>/<username>/higgsdna_finalfits_tutorial_24/micromamba
+Configure conda-forge? [~/micromamba] ./micromamba_dir
 ```
 
 We specify a location in `eos` for the micromamba prefix as it can take up quite some space and the quota of the home directory is limited on lxplus.
@@ -65,8 +64,7 @@ Note that `tmux` sessions close by default if you log out on lxplus9.
 If you want to keep them alive, run the setup on lxplus8.
 
 ```
-cd HiggsDNA
-micromamba env create --prefix /eos/user/<letter>/<username>/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna -f environment.yml
+micromamba env create --prefix micromamba_dir/envs/higgs-dna -f HiggsDNA/environment.yml
 ```
 
 You have to confirm the installation with `Y` after the initial collection of packages from the `conda-forge` channel.
@@ -109,7 +107,7 @@ Regardless whether you use the classical `conda` environment or the alternative 
 
 ```
 cd HiggsDNA
-micromamba activate /eos/home-<letter>/<username>/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna # alternatively, use the image (or correct the path if it differs).
+conda activate higgs-dna # alternatively, use the image
 pip install -e .[dev]
 ```
 
