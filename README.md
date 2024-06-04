@@ -76,3 +76,5 @@ If `VSCode` does not work for you or you do not like it, you can also consider t
 Please follow the instructions outlined in the `README.md` in the `00_HiggsDNA_setup` subdirectory to set up and test your HiggsDNA installation.
 
 ## FinalFits Part
+
+Please follow the instructions outlined in the `README.md` in the `07_FinalFits` subdirectory to set up and test your Final Fits installation.
