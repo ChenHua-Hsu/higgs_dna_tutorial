@@ -12,18 +12,18 @@ The following are three ways to set up the environment needed for the hands-on (
 
 1. Go to `Extensions` in VSCode 
 
-    <img src="figure/VSCode_Extension.png" alt="drawing" style="height:250px;"/>
+    <img src="figure/VSCode_Extension.png" alt="drawing" style="width:100px;"/>
 
 2. Search for "python" in the search box. And hit `install in SSH: lxplus9` to install the **Python** extension from **Microsoft**
 
-    <img src="figure/python_ext.png" alt="drawing" style="height:250px;"/>
+    <img src="figure/python_ext.png" alt="drawing" style="width:100px;"/>
 
 
 3. Once **Python** extension installed. Continue to install the **Jupyter** extension.
     
     Again, search for "jupyter". And install **Jupyter** extension from **Microsoft**
 
-    <img src="figure/jupyter_ext.png" alt="drawing" style="height:250px;"/>
+    <img src="figure/jupyter_ext.png" alt="drawing" style="width:100px;"/>
 
 4. We are able to run the notebook in VSCode. Let us have a quick test.
 
