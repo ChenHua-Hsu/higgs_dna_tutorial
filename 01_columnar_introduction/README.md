@@ -61,17 +61,21 @@ All the needed packages for the **first Hands-on** are already installed in some
 
 Let us try **SWAN**.
 
-1. Go to the **SWAN** service: https://swan.cern.ch with your web browser and log into your CERN account. Then, start a new terminal session in the **Launcher** tab. 
+1. Go to the **SWAN** service: https://swan.cern.ch with your web browser and log into your CERN account. Then, start your session with **AlmaLinux 9 (gcc13)**.
+
+    <img src="figure/swan_setting.png" alt="drawing" style="weight:500px;"/>
+
+2. Start a new terminal session in the **Launcher** tab. 
 
     <img src="figure/swan_terminal.png" alt="drawing" style="weight:500px;"/>
 
-2. Copy the notebook to your local folder, i.e., run 
+3. Copy the notebook to your local folder, i.e., run 
 
     ```
-    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/01_columnar_introduction .
+    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/columnar_intro_material 01_columnar_introduction
     ```
 
-3. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
+4. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
 
     <img src="figure/swan_notebook.png" alt="drawing" style="weight:500px;"/>
 
