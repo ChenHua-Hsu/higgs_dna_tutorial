@@ -75,6 +75,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 '0.7.22'
 ```
 
+For some of the hands-on parts, we are going to use `python notebook`. So please also install the `ipykernel` and `jupyter` packages in your `higgs-dna` environment, i.e.,
+
+```bash
+# activate the `higgs-dna` if you haven't
+micromamba activate higgs-dna
+# install packages
+micromamba install ipykernel jupyter -y
+```
+
+Then, please check the enviroment settings of the first hands-on: [01_columnar_introduction](01_columnar_introduction/README.md), and choose one of the methods of setting up the environment.
+
 ### Docker image
 
 TODO: FINISH THIS SECTION
