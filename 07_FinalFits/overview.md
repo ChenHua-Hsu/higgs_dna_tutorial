@@ -9,10 +9,10 @@ We consider the contributions in these categories from both ggH and VBF to build
 
 This tutorial is split into five sections. You can follow the links for detailed instructions.
 
-* [Trees2WS](): we will learn how to convert the ROOT tree output of HiggsDNA into a Final Fits compatible RooWorkspace.
-* [Signal modeling](): we will use the signal MC RooWorkspaces to build signal models.
-* [Background modeling](): we will use the data RooWorkspaces to build the background models with the discrete-profiling method.
-* [Datacard creation](): we will build a Combine datacard from the inputs.
-* [Combine and plotting](): we will convert the datacard into a RooWorkspace, perform fits and plot the output.
+* [Trees2WS](./trees2ws): we will learn how to convert the ROOT tree output of HiggsDNA into a Final Fits compatible RooWorkspace.
+* [Signal modeling](./signal_modeling): we will use the signal MC RooWorkspaces to build signal models.
+* [Background modeling](./background_modeling): we will use the data RooWorkspaces to build the background models with the discrete-profiling method.
+* [Datacard creation](./datacard): we will build a Combine datacard from the inputs.
+* [Combine and plotting](./combine): we will convert the datacard into a RooWorkspace, perform fits and plot the output.
 
 Enjoy!
