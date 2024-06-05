@@ -3,7 +3,6 @@
 `HiggsDNA` and `FinalFits` run on any contemporary scientific linux machine. You are free to follow the tutorial from the computing infrastructure of your choice, but we highly recommend that you use `lxplus` (v9!) since we designed and tested the tutorial on `lxplus`.
 
 Please make sure that you have deposited a valid ssh key for your CERN Gitlab account and that your private key is also present in the `~/.ssh/` directory and the host `gitlab.cern.ch` is entered in the `~/.ssh/config` file. For more information, consult https://docs.gitlab.com/ee/user/ssh.html.
-If the setup with the `ssh` key does not work for you, you can also clone this repository over `https`. In that case, adjust the command below appropriately.
 
 This repository contains submodules.
 Please clone the repository with the `--recurse-submodules` command to ensure that the `HiggsDNA` submodule is cloned appropriately.
