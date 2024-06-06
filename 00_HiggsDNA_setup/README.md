@@ -75,7 +75,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 '0.7.22'
 ```
 
-For some of the hands-on parts, we are going to use `python notebook`. So please also install the `ipykernel` and `jupyter` packages in your `higgs-dna` environment, i.e.,
+#### Setting up the jupyter notebook environment with micromamba
+
+For some exercises, we are going to use python [`jupyter notebook`](https://jupyter.org/). So please also install the `ipykernel` and `jupyter` packages in your `higgs-dna` environment, i.e.,
 
 ```bash
 # activate the `higgs-dna` if you haven't
