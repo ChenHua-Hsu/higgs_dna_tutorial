@@ -86,7 +86,7 @@ micromamba activate higgs-dna
 micromamba install ipykernel jupyter -y
 ```
 
-Then, please check the enviroment settings of the first hands-on: [01_columnar_introduction](01_columnar_introduction/README.md), and choose one of the methods of setting up the environment.
+Then, please also check the **enviroment settings of the first exercise**: [01_columnar_introduction](01_columnar_introduction/README.md), and choose one of the methods of setting up the environment.
 
 ### Docker image
 
