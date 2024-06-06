@@ -102,8 +102,6 @@ Then, please also check the **enviroment settings of the first exercise**: [01_c
 
 ### Apptainer
 
-First, create the directory to store the apptainer cache:
-
 `Apptainer` is another possibility if you do not want to use `micromamba` or it does not work for you.
 You can always start a shell with an image of our latest build of HiggsDNA with
 ```
