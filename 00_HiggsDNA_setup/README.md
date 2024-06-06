@@ -87,6 +87,19 @@ Note: If everything went according to plan, `micromamba activate higgs-dna` is t
 If it does not work, please carefully check the printout of `micromamba` after installing the environment.
 There, he will say `To activate this environment, use:` and give you the exact command to use.
 
+#### Setting up the jupyter notebook environment with micromamba
+
+For some exercises, we are going to use python [`jupyter notebook`](https://jupyter.org/). So please also install the `ipykernel` and `jupyter` packages in your `higgs-dna` environment, i.e.,
+
+```bash
+# activate the `higgs-dna` if you haven't
+micromamba activate higgs-dna
+# install packages
+micromamba install ipykernel jupyter -y
+```
+
+Then, please also check the **enviroment settings of the first exercise**: [01_columnar_introduction](01_columnar_introduction/README.md), and choose one of the methods of setting up the environment.
+
 ### Apptainer
 
 `Apptainer` is another possibility if you do not want to use `micromamba` or it does not work for you.
