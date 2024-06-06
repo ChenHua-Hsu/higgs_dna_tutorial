@@ -35,11 +35,13 @@ scram b -j 8
 # Install Final Fit package
 git clone -b $FINALFIT_TAG https://github.com/cms-analysis/flashggFinalFit.git
 cd flashggFinalFit/
+source setup.sh
 ```
 
-Ignore the compilation warnings from the CombineTools package. These will be fixed in the near future. In every new shell run the following to add `tools/commonTools` and `tools/commonObjects` to you `${PYTHONPATH}`:
+Ignore the compilation warnings from the CombineTools package. These will be fixed in the near future. 
+
+In every new shell/terminal, we must go to the base directory of the flashggFinalFit repository and reactivate the environment with:
 ```
-cmsenv
 source setup.sh
 ```
 

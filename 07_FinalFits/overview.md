@@ -1,7 +1,9 @@
 ## Tutorial overview
 The accompanying slides for this tutorial can be found attached to the [Indico page](https://indico.cern.ch/event/1398580/sessions/551110/#20240618).
 
-In this tutorial we will build the statistical model for a simple analysis based on Run 3 data (2022 preEE). This corresponds to an integrated luminosity of 8 fb $^{-1}$. After the standard H$\rightarrow\gamma\gamma$ triggers and preselection are applied, events are categorised according to the lead/sublead photon $\eta$ and $R_9$. In total there are ten analysis categories:
+In this tutorial we will build the statistical model for a simple analysis based on Run 3 data (2022 preEE). This corresponds to an integrated luminosity of 8 fb $^{-1}$. After the standard H$\rightarrow\gamma\gamma$ triggers and preselection are applied, events are categorised according to the lead/sublead photon $\eta$ and $R_9$. There is a single splitting in eta: whether the photon is in the EB (barrel) part of the ECAL, or in the EE (endcap) part of the ECAL. There is also a single splitting in $R_9$: low or high.
+
+In total there are ten analysis categories:
 ```
 EBEB_highR9highR9,EBEB_highR9lowR9,EBEB_lowR9highR9,EBEE_highR9highR9,EBEE_highR9lowR9,EBEE_lowR9highR9,EEEB_highR9highR9,EEEB_highR9lowR9,EEEB_lowR9highR9,EEEE_incl
 ```
