@@ -7,7 +7,8 @@ General installation instructions are available at https://higgs-dna.readthedocs
 ## Setting up the environment
 
 For this tutorial, we propose two main options, which are already outlined at the above link, to set up your software environment for HiggsDNA.
-The two options are using a micromamba environment (preferred) or using a docker image (alternative).
+The two options are using a micromamba environment or using apptainer.
+The tutorial has been set up and tested using the first approach, so we would recommend to give that a go first, although both approaches are valid.
 
 If you already have a working environment to run HiggsDNA in, you can skip this step and go straight to the "Installing HiggsDNA" step.
 
@@ -17,21 +18,28 @@ If you already have a working micromamba installation on lxplus, skip straight a
 
 #### Setting up micromamba
 
-<add motivation for micromamba compared to conda>
+We suggest to use the `micromamba` software to install an environment for HiggsDNA to thrive in. It is a faster, standalone version of `conda`.
 
 Follow the instruction for the automatic install provided at https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install.
 This means: Execute
 
 ```
+cd higgsdna_finalfits_tutorial_24
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 ```
 
 in the root directory of the tutorial repository.
-He will ask you a serious of questions to determine your preferred setup.
-Please specify a location in `eos` for the micromamba prefix as it can take up quite some space and the quota of the home directory is limited on lxplus.
+He will ask you a serious of questions to determine your preferred setup. Please answer as follows:
+
+```
+Micromamba binary folder? [~/.local/bin] 
+Init shell (bash)? [Y/n] Y
+Configure conda-forge? [Y/n] Y
+Configure conda-forge? [~/micromamba] /eos/user/home-<letter>/<username>/higgsdna_finalfits_tutorial_24/micromamba
+```
+
+We specify a location in `eos` for the micromamba prefix as it can take up quite some space and the quota of the home directory is limited on lxplus.
 The binary folder can be in your home as it does not take up a lot of space.
-For these example instructions, we used `./micromamba_dir` in the root directory of the repository.
-Please also answer `Y` when prompted for `Init shell` and `Configure conda-forge`.
 If this was successful, you will receive some printout about appending lines to your `~/.bashrc`, this is intended. Please use a clean shell now or run
 
 ```
@@ -58,13 +66,14 @@ If you want to keep them alive, run the setup on lxplus8.
 
 ```
 cd HiggsDNA
-micromamba env create --prefix micromamba_dir/envs/higgs-dna -f HiggsDNA/environment.yml
+micromamba env create --prefix /eos/user/<letter>/<username>/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna -f environment.yml
 ```
 
 You have to confirm the installation with `Y` after the initial collection of packages from the `conda-forge` channel.
-Note that we install the environment in a a different location compared to the default (which would be in your home) as disk space in the home directory is a scarce ressource on lxplus. 
+Note that we install the environment in a a different location compared to the default (which would be in your home) as disk space in the home directory is a scarce ressource on lxplus.
 
-After the installation has finished, test it. You can find the expected output below.
+After the installation has finished, test it.
+You can find the expected output below.
 ```
 (base) [jspah@lxplus903 higgsdna_finalfits_tutorial_24]$ micromamba activate higgs-dna 
 (higgs-dna) [jspah@lxplus903 higgsdna_finalfits_tutorial_24]$ python
@@ -74,6 +83,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> coffea.__version__
 '0.7.22'
 ```
+Note: If everything went according to plan, `micromamba activate higgs-dna` is the correct command to activate your environment.
+If it does not work, please carefully check the printout of `micromamba` after installing the environment.
+There, he will say `To activate this environment, use:` and give you the exact command to use.
 
 #### Setting up the jupyter notebook environment with micromamba
 
@@ -94,16 +106,18 @@ TODO: FINISH THIS SECTION
 
 First, create the directory to store the apptainer cache:
 
+`Apptainer` is another possibility if you do not want to use `micromamba` or it does not work for you.
+You can always start a shell with an image of our latest build of HiggsDNA with
 ```
-mkdir apptainer-cache
+apptainer shell -B /eos/user/<letter>/<username>/<path_to_higgsdna_finalfits_tutorial_24> -B /afs -B /cvmfs/cms.cern.ch -B /tmp  -B /eos/cms/  -B /etc/sysconfig/ngbauth-submit -B ${XDG_RUNTIME_DIR}  --env KRB5CCNAME="FILE:${XDG_RUNTIME_DIR}/krb5cc" /cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/higgsdna-project/higgsdna:latest
 ```
-
+This is a very lightweight method, but it is arguably not as flexible because you rely on the latest version. You can run HiggsDNA commands in this `apptainer` shell, so you can try to run
 ```
-SINGULARITY_CACHEDIR=./apptainer-cache apptainer shell --bind /afs -B /cvmfs/cms.cern.ch \
---bind /tmp --bind /eos/cms/ \
---env KRB5CCNAME=$KRB5CCNAME --bind /etc/sysconfig/ngbauth-submit \
-docker://gitlab-registry.cern.ch/higgsdna-project/higgsdna:lxplus-c1fd1280
+run_analysis.py --help
 ```
+for example.
+Note that `run_analysis.py` is invoked as an executable script and need not be found anywhere in your directory.
+Because you mounted your tutorial directory with the `-B` argument, you can also execute plotting scripts (that we will use later in the tutorial) inside such a shell. If you also want to develop, you should also install HiggsDNA in editable mode, see the Section below for that.
 
 ## Installing HiggsDNA
 
@@ -112,7 +126,7 @@ Regardless whether you use the classical `conda` environment or the alternative 
 
 ```
 cd HiggsDNA
-conda activate higgs-dna # alternatively, use the image
+micromamba activate /eos/home-<letter>/<username>/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna # alternatively, use the image (or correct the path if it differs).
 pip install -e .[dev]
 ```
 
@@ -129,3 +143,5 @@ pytest
 ```
 
 If that worked, you are all set from the HiggsDNA side!
+
+NB: With the apptainer setup, tests can fail due to issues with xgboost, as explained in https://higgs-dna.readthedocs.io/en/latest/installation.html#docker-singularity. You do not need to worry about that.
