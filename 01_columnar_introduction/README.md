@@ -4,11 +4,56 @@ In this section, we will briefly look at columnar operation via [coffea](https:/
 
 We recommend the use of a **notebook** for interactivity. This makes it easier to visualize the results obtained at each step.
 
-The following are three ways to set up the environment needed for the hands-on (clickable item list):
+The following are three ways to set up the environment needed for the hands-on.
 
+## Using SWAN to run a python notebook (Recommended)
+
+If you don't want to bother installing extensions on VSCode to enable running **jupyter notebook**. You can use [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) (Service for Web-based ANalysis) provided by CERN to play with the notebooks. 
+
+Here is the instruction of using **SWAN**:
 
 <details>
-  <summary> <b>Using VSCode to run a python notebook</b></summary>
+<summary> <b> Using SWAN to run a python notebook (click to expand) </b></summary>
+
+By connecting to **SWAN**, users have immediate access to the CERN storage, software and computing resources they need to do their analyses.  
+
+The **SWAN** interface is built on top of Jupyter, allowing users to write and run notebooks by only using their web browser. **SWAN** users can create notebooks in four different languages: Python (2 and 3), C++, R and Octave.
+
+All the needed packages for the **first Hands-on** are already installed in some of the **SWAN** settings. To introduce the basic of columnar operation. We can go without `higgs-dna` environment.
+
+Let us try **SWAN**.
+
+1. Go to the **SWAN** service: https://swan.cern.ch with your web browser and log into your CERN account. Then, start your session with **AlmaLinux 9 (gcc13)**.
+
+    <img src="figure/swan_setting.png" alt="drawing" style="weight:500px;"/>
+
+2. Start a new terminal session in the **Launcher** tab. 
+
+    <img src="figure/swan_terminal.png" alt="drawing" style="weight:500px;"/>
+
+3. Copy the notebook to your local folder, i.e., run 
+
+    ```
+    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/columnar_intro_material 01_columnar_introduction
+    ```
+
+4. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
+
+    <img src="figure/swan_notebook.png" alt="drawing" style="weight:500px;"/>
+
+
+</details>
+
+Please note, you cannot access `higgs-dna` environment via **SWAN** directly. So, when you run the commands with `higgs-dna`, you need to run it in a seperate terminal. 
+
+## Using VSCode to run a python notebook
+
+VSCode provides extensions that allow us to run jupyter notebooks. There are several exercises that use notebooks to better demonstrate how to write code, make the plots, etc.
+    
+If you want to use notebooks on VSCode, you can refer to the following instruction:
+    
+<details>
+<summary> <b>Using VSCode to run a python notebook (click to expand)</b></summary>
 
 1. Go to `Extensions` in VSCode 
 
@@ -48,47 +93,20 @@ The following are three ways to set up the environment needed for the hands-on (
 
 </details>
 
-<details>
-  <summary> <b>Using SWAN to run a python notebook</b></summary>
+Once configured, you can run the notebook with VSCode, and also use VSCode terminal to run the previously installed `higgs-dna` environment.
 
-If you enconter some problems in setting the environment in VSCode. You can use [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) (Service for Web-based ANalysis) provided by CERN.
+## Running the script with `higgs-dna` environment (backup)
 
-By connecting to **SWAN**, users have immediate access to the CERN storage, software and computing resources they need to do their analyses.  
-
-The **SWAN** interface is built on top of Jupyter, allowing users to write and run notebooks by only using their web browser. **SWAN** users can create notebooks in four different languages: Python (2 and 3), C++, R and Octave.
-
-All the needed packages for the **first Hands-on** are already installed in some of the **SWAN** settings. To introduce the basic of columnar operation. We can go without `higgs-dna` environment.
-
-Let us try **SWAN**.
-
-1. Go to the **SWAN** service: https://swan.cern.ch with your web browser and log into your CERN account. Then, start your session with **AlmaLinux 9 (gcc13)**.
-
-    <img src="figure/swan_setting.png" alt="drawing" style="weight:500px;"/>
-
-2. Start a new terminal session in the **Launcher** tab. 
-
-    <img src="figure/swan_terminal.png" alt="drawing" style="weight:500px;"/>
-
-3. Copy the notebook to your local folder, i.e., run 
-
-    ```
-    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/columnar_intro_material 01_columnar_introduction
-    ```
-
-4. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
-
-    <img src="figure/swan_notebook.png" alt="drawing" style="weight:500px;"/>
-
-
-</details>
-
-
-<details>
-  <summary> <b>Running the script with higgs-dna environment</b></summary>
+If you can't use either SWAN or VSCode. Here is a backup solution. 
 
 The most straightforward way to play with the `coffea` package is to execute the python code with command lines.
 
 A python script `coffea_basic.py` is provieded. We can run the code with the `higgs-dna` evironment.
+
+<details>
+<summary> <b>Running the script with higgs-dna environment (click to expand)</b></summary>
+
+
 
 ```
 micromamba activate higgs-dna
@@ -115,3 +133,7 @@ Please note:
     - Simply download the plots locally.
 
 </details>
+
+# Exercise 1
+
+Now, let us start! Open `coffea_basic.ipynb` (or `coffea_basic.py`) and play with it.
