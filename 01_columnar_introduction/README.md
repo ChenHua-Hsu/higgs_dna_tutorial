@@ -4,112 +4,82 @@ In this section, we will briefly look at columnar operation via [coffea](https:/
 
 We recommend the use of a **notebook** for interactivity. This makes it easier to visualize the results obtained at each step.
 
-The following are three ways to set up the environment needed for the hands-on.
-
-## Using SWAN to run a python notebook (Recommended)
-
-If you don't want to bother installing extensions on VSCode to enable running **jupyter notebook**. You can use [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) (Service for Web-based ANalysis) provided by CERN to play with the notebooks. 
-
-Here is the instruction of using **SWAN**:
-
-<details>
-<summary> <b> Using SWAN to run a python notebook (click to expand) </b></summary>
-
-By connecting to **SWAN**, users have immediate access to the CERN storage, software and computing resources they need to do their analyses.  
-
-The **SWAN** interface is built on top of Jupyter, allowing users to write and run notebooks by only using their web browser. **SWAN** users can create notebooks in four different languages: Python (2 and 3), C++, R and Octave.
-
-All the needed packages for the **first Hands-on** are already installed in some of the **SWAN** settings. To introduce the basic of columnar operation. We can go without `higgs-dna` environment.
-
-Let us try **SWAN**.
-
-1. Go to the **SWAN** service: https://swan.cern.ch with your web browser and log into your CERN account. Then, start your session with **AlmaLinux 9 (gcc13)**.
-
-    <img src="figure/swan_setting.png" alt="drawing" style="weight:500px;"/>
-
-2. Start a new terminal session in the **Launcher** tab. 
-
-    <img src="figure/swan_terminal.png" alt="drawing" style="weight:500px;"/>
-
-3. Copy the notebook to your local folder, i.e., run 
-
-    ```
-    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/columnar_intro_material 01_columnar_introduction
-    ```
-
-4. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
-
-    <img src="figure/swan_notebook.png" alt="drawing" style="weight:500px;"/>
-
-
-</details>
-
-Please note, you cannot access `higgs-dna` environment via **SWAN** directly. So, when you run the commands with `higgs-dna`, you need to run it in a seperate terminal. 
+If [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) does not work for you, you can try the following backup solutions.
 
 ## Using VSCode to run a python notebook
 
-VSCode provides extensions that allow us to run jupyter notebooks. There are several exercises that use notebooks to better demonstrate how to write code, make the plots, etc.
+#### Setting up the jupyter notebook environment with micromamba
+
+- You can install extensions on VSCode to enable running **jupyter notebook**. Firstly, install the `ipykernel` and `jupyter` packages in the `higgs-dna` environment with the following commands, i.e.,
+
+```bash
+# activate the `higgs-dna` if you haven't
+micromamba activate higgs-dna
+# install packages
+micromamba install ipykernel jupyter -y
+```
+
+- Then, install the VSCode extensions with the following instruction:
     
-If you want to use notebooks on VSCode, you can refer to the following instruction:
-    
-<details>
-<summary> <b>Using VSCode to run a python notebook (click to expand)</b></summary>
+    <details>
+    <summary> <b>Using VSCode to run a python notebook (click to expand)</b></summary>
 
-1. Go to `Extensions` in VSCode 
+    1. Go to `Extensions` in VSCode 
 
-    <img src="figure/VSCode_Extension.png" alt="drawing" style="width:100px;"/>
+        <img src="figure/VSCode_Extension.png" alt="drawing" style="width:100px;"/>
 
-2. Search for "python" in the search box. And hit `install in SSH: lxplus9` to install the **Python** extension from **Microsoft**
+    2. Search for "python" in the search box. And hit `install in SSH: lxplus9` to install the **Python** extension from **Microsoft**
 
-    <img src="figure/python_ext.png" alt="drawing" style="width:100px;"/>
+        <img src="figure/python_ext.png" alt="drawing" style="width:100px;"/>
 
 
-3. Once **Python** extension installed. Continue to install the **Jupyter** extension.
-    
-    Again, search for "jupyter". And install **Jupyter** extension from **Microsoft**
+    3. Once **Python** extension installed. Continue to install the **Jupyter** extension.
+        
+        Again, search for "jupyter". And install **Jupyter** extension from **Microsoft**
 
-    <img src="figure/jupyter_ext.png" alt="drawing" style="width:100px;"/>
+        <img src="figure/jupyter_ext.png" alt="drawing" style="width:100px;"/>
 
-4. We are able to run the notebook in VSCode. Let us have a quick test.
+    4. We are able to run the notebook in VSCode. Let us have a quick test.
 
-    - Find the `higgsdna_finalfits_tutorial_24/01_columnar_introduction/coffea_basic.ipynb` in the `File Explore` and open it.
+        - Find the `higgsdna_finalfits_tutorial_24/01_columnar_introduction/coffea_basic.ipynb` in the `File Explore` and open it.
 
-        In the top right corner, hit `Select Kernel` to choose the python kernel. 
+            In the top right corner, hit `Select Kernel` to choose the python kernel. 
 
-        <img src="figure/01_coffea_notebook_1.png" alt="drawing" style="weight:500px;"/>
+            <img src="figure/01_coffea_notebook_1.png" alt="drawing" style="weight:500px;"/>
 
-    - Click `Python Environments...` in the pop-up window.
+        - Click `Python Environments...` in the pop-up window.
 
-        <img src="figure/01_coffea_notebook_2.png" alt="drawing" style="weight:500px;"/>
+            <img src="figure/01_coffea_notebook_2.png" alt="drawing" style="weight:500px;"/>
 
-    - Choose the **higgs-dna** environment that has been installed by following [00_HiggsDNA_setup](https://gitlab.cern.ch/jspah/higgsdna_finalfits_tutorial_24/-/tree/master/00_HiggsDNA_setup?ref_type=heads).  
+        - Choose the **higgs-dna** environment that has been installed by following [00_HiggsDNA_setup](https://gitlab.cern.ch/jspah/higgsdna_finalfits_tutorial_24/-/tree/master/00_HiggsDNA_setup?ref_type=heads).  
 
-        <img src="figure/01_coffea_notebook_3.png" alt="drawing" style="weight:500px;"/>
+            <img src="figure/01_coffea_notebook_3.png" alt="drawing" style="weight:500px;"/>
 
-    - Each code cell could be executed with **`Shift+Enter`**. Go to the first python code cell (Under **Load a root file from gluon-gluon fusion $H \rightarrow \gamma \gamma$**), then **`Shift+Enter`**, if it works, you will be able to see a checkmark in the bottom right corner (**Note**: If this is the first execution, it may take longer).
+        - Each code cell could be executed with **`Shift+Enter`**. Go to the first python code cell (Under **Load a root file from gluon-gluon fusion $H \rightarrow \gamma \gamma$**), then **`Shift+Enter`**, if it works, you will be able to see a checkmark in the bottom right corner (**Note**: If this is the first execution, it may take longer).
 
-        <img src="figure/01_coffea_notebook_4.png" alt="drawing" style="weight:500px;"/>
+            <img src="figure/01_coffea_notebook_4.png" alt="drawing" style="weight:500px;"/>
 
 
-</details>
+    </details>
 
 Once configured, you can run the notebook with VSCode, and also use VSCode terminal to run the previously installed `higgs-dna` environment.
 
-## Running the script with `higgs-dna` environment (backup)
+## Running the script with `higgs-dna` environment
 
-If you can't use either SWAN or VSCode. Here is a backup solution. 
+If you can't use notebook. You can execute the python script with the `coffea` package.
 
-The most straightforward way to play with the `coffea` package is to execute the python code with command lines.
-
-A python script `coffea_basic.py` is provieded. We can run the code with the `higgs-dna` evironment.
+A python script `coffea_basic.py` is provieded. You can run the code with the `higgs-dna` evironment.
 
 <details>
 <summary> <b>Running the script with higgs-dna environment (click to expand)</b></summary>
 
 
 
-```
+```bash
+# activate the `higgs-dna` if you haven't
 micromamba activate higgs-dna
+
+# run the script
 python coffea_basic.py
 ```
 

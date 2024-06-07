@@ -87,18 +87,45 @@ Note: If everything went according to plan, `micromamba activate higgs-dna` is t
 If it does not work, please carefully check the printout of `micromamba` after installing the environment.
 There, he will say `To activate this environment, use:` and give you the exact command to use.
 
-#### Setting up the jupyter notebook environment with micromamba
+#### Testing SWAN to run a python notebook
 
-For some exercises, we are going to use python [`jupyter notebook`](https://jupyter.org/). So please also install the `ipykernel` and `jupyter` packages in your `higgs-dna` environment, i.e.,
+For some exercises, we are going to use python [`jupyter notebook`](https://jupyter.org/). We can use [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) (Service for Web-based ANalysis) provided by CERN to play with the notebooks. 
 
-```bash
-# activate the `higgs-dna` if you haven't
-micromamba activate higgs-dna
-# install packages
-micromamba install ipykernel jupyter -y
-```
+You can test if you are able to use **SWAN** by following these steps：
 
-Then, please also check the **enviroment settings of the first exercise**: [01_columnar_introduction](01_columnar_introduction/README.md), and choose one of the methods of setting up the environment.
+<details>
+<summary> <b> Using SWAN to run a python notebook (click to expand) </b></summary>
+
+By connecting to **SWAN**, users have immediate access to the CERN storage, software and computing resources they need to do their analyses.  
+
+The **SWAN** interface is built on top of Jupyter, allowing users to write and run notebooks by only using their web browser. **SWAN** users can create notebooks in four different languages: Python (2 and 3), C++, R and Octave.
+
+All the needed packages for the **first Hands-on** are already installed in some of the **SWAN** settings. To introduce the basic of columnar operation. We can go without `higgs-dna` environment.
+
+Let us try **SWAN**.
+
+1. Go to the **SWAN** service: https://swan.cern.ch with your web browser and log into your CERN account. Then, start your session with **AlmaLinux 9 (gcc13)**.
+
+    <img src="figure/swan_setting.png" alt="drawing" style="weight:500px;"/>
+
+2. Start a new terminal session in the **Launcher** tab. 
+
+    <img src="figure/swan_terminal.png" alt="drawing" style="weight:500px;"/>
+
+3. Copy the notebook to your local folder, i.e., run 
+
+    ```
+    cp -r /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/01_intro/columnar_intro_material 01_columnar_introduction
+    ```
+
+4. Open the "File Explore" panel, go to the folder `01_columnar_introduction`. Then double click the `coffea_basic.ipynb` notebook. You can already start playing with the notebook (make sure that you are using the `Python 3` kernel, check the top right corner).
+
+    <img src="figure/swan_notebook.png" alt="drawing" style="weight:500px;"/>
+
+</details>
+
+Please note, you cannot access `higgs-dna` environment via **SWAN** directly. So, when you run the commands with `higgs-dna`, you need to run it in a seperate terminal. 
+
 
 ### Apptainer
 
