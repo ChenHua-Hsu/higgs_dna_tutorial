@@ -6,9 +6,7 @@ We recommend the use of a **notebook** for interactivity. This makes it easier t
 
 If [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) does not work for you, you can try the following backup solutions.
 
-## Using VSCode to run a python notebook
-
-#### Setting up the jupyter notebook environment with micromamba
+## Solution 1: Using VSCode to run a python notebook
 
 - You can install extensions on VSCode to enable running **jupyter notebook**. Firstly, install the `ipykernel` and `jupyter` packages in the `higgs-dna` environment with the following commands, i.e.,
 
@@ -64,7 +62,7 @@ micromamba install ipykernel jupyter -y
 
 Once configured, you can run the notebook with VSCode, and also use VSCode terminal to run the previously installed `higgs-dna` environment.
 
-## Running the script with `higgs-dna` environment
+## Solution 2: Running the script with `higgs-dna` environment
 
 If you can't use notebook. You can execute the python script with the `coffea` package.
 
