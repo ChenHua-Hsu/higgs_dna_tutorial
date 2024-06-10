@@ -5,13 +5,24 @@ cd $CMSSW_BASE/src/flashggFinalFit/Datacard
 ```
 A datacard is a `.txt` file which effectively packages everything up, and it is the input to Combine to use for the final results extraction. The datacard contains:
 * Paths to signal pdfs, background pdfs and datasets for each category.
-* Defines the rate of each process. In H$\rightarrow\gamma\gamma$ analyses, the rate for signal processes is specified as the integrated luminosity (in pb). The other parts of the normalisation i.e. $[\sigma\cdot\mathcal{B}]_i$ and $\epsilon_{ij}$ are picked up from the signal model workspaces (`_norm` functions). A value of `1` is defined as the rate for background, as the models are constructed directly from data.
+* Defines the rate of each process. In H $\rightarrow\gamma\gamma$ analyses, the rate for signal processes is specified as the integrated luminosity (in pb). The other parts of the normalisation i.e. $[\sigma\cdot\mathcal{B}]_i$ and $\epsilon_{ij}$ are picked up from the signal model workspaces (`_norm` functions). A value of `1` is defined as the rate for background, as the models are constructed directly from data.
 * Systematic uncertainties affecting the yield of each process x category combination. These are specified as `lnN` uncertainties in the datacard, and are split into experimental and theoretical uncertainties. 
 * Signal shape nuisance parameters (Scale and Smearing)
 * Pdf indices are the discrete nuisance parameters which label the choice of the bkg pdf in each analysis category.
 
+We will use the workspaces built in the Trees2WS section as input. If you ran into problems with the Trees2WS section and have not already copied the output workspaces, they can be found in the `cmshgg` area:
+```
+PATH_TO_INPUTS="Add path to eos user area"
+
+cp -rp /eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/FinalFits_tutorial/workspaces ${PATH_TO_INPUTS}
+```
+
 ## Yield calculation
-The first step is to calculate the nominal and systematic-varied yields for each signal (proc,cat) combination. This is performed with the following command:
+The first step is to calculate the nominal and systematic-varied yields for each signal (proc,cat) combination. To do this, set the `PATH_TO_INPUTS` variable accordingly:
+```
+PATH_TO_INPUTS=${CMSSW_BASE}/src/flashggFinalFit/Trees2WS/inputs/ # CHANGE TO WHERE YOU SAVED THEM (IF DIFFERENT)
+```
+and then run this command:
 ```
 python3 RunYields.py --inputWSDirMap 2022preEE=$PATH_TO_INPUTS/workspaces/signal_2022preEE --cats auto --procs auto --ext tutorial --mergeYears --skipCOWCorr --doSystematics --batch condor --queue espresso
 ```
@@ -29,7 +40,7 @@ The output of the yield calculation step are pandas DataFrames stored in `yields
 ```
 $ python3
 >>> import pickle as pkl
->>> with open("EBEB_lowR9highR9.pkl", "rb") as fpkl:
+>>> with open("yields_tutorial/EBEB_lowR9highR9.pkl", "rb") as fpkl:
 ...     data = pkl.load(fpkl)
 
 >>> data

@@ -20,11 +20,13 @@ If you did not have time to complete any of the previous sections, then you can 
 ```
 
 ## Text2workspace
-Next we need to build the workspace using the `text2workspace` function in Combine. We have a job submission script to do this. Run the following command:
+The text datacard created in the previous (Datacard) section contains (or points to) all of the inputs that Combine requires to do statistical inference. By running the `text2workspace` command, we convert the text datacard into a workspace that contains the inputs. In the conversion, we also specify a model that describes the parameters of interest (POIs) and how they are related to the rates of processes in the workspace.
+
+In flashggFinalFit, we have a job submission script to run `text2workspace`. Run the following command:
 ```
 python3 RunText2Workspace.py --mode mu_inclusive --batch local --ext _tutorial
 ```
-The signal parametrization is defined by the `--mode` option, which picks out a parametrization from the dictionary defined in `models.py`. In this tutorial we will use the `mu_inclusive` model, which defines a single signal strength ($r$) to scale the rate of all signal processes simultaneously. You can use the `multiSignalModel` option to map different parameters of interest (POI) to the different signal processes e.g. the `mu` model introduces a separate signal strength for each of the four major Higgs boson production modes. Wildcards can be used if necessary. 
+The model is defined by the `--mode` option, which picks out a parametrization from the dictionary defined in `models.py`. In this tutorial we will use the `mu_inclusive` model, which defines a single signal strength ($r$) to scale the rate of all signal processes simultaneously. You can use the `multiSignalModel` option to map different parameters of interest (POI) to the different signal processes e.g. the `mu` model introduces a separate signal strength for each of the four major Higgs boson production modes. Wildcards can be used if necessary. 
 
 In the tutorial example, the analysis categories are not defined to separate the different Higgs boson production modes. Therefore we do not have the sensitivity to simultaneously fit ggH and VBF. This would be different if we added analysis categories which were pure in VBF e.g. requiring a dijet system with high invariant mass and large $\Delta\eta_{jj}$.
 
@@ -50,6 +52,17 @@ $ python3
 # Print the signal-plus-background model
 >>> w.pdf("model_s").Print("v")
 ```
+
+<details>
+<summary>Or in the ROOT interpreter</summary>
+
+```
+$ root -b Datacard_tutorial_mu_inclusive.root
+root [1] w->Print()
+root [2] w->allVars().Print("v")
+root [3] w->pdf("model_s")->Print("v")
+```
+</details>
 
 ## Running the fits
 If you are confident with using Combine and know its many options, then feel free to run the commands directly on the workspace. We also have provided a wrapper script, `RunFits.py`, which can be used to run the combine jobs. This is based on the `combineTool.py` for job submission. The fits are steered by an `inputs.json` file e.g. `inputs_tutorial/inputs_tutorial_profile1D_syst.json`:
@@ -145,6 +158,19 @@ $ python3
 >>> t = f.Get("limit")
 >>> t.Show(0)
 ```
+
+<details>
+<summary>Or in the ROOT interpreter</summary>
+
+```
+$ root -b runFits_tutorial_mu_inclusive/higgsCombine_bestfit_syst_r.MultiDimFit.mH125.38.root
+root [1] .ls
+root [2] w->loadSnapshot("MultiDimFit")
+root [3] w->Print()
+root [4] limit->Show(0)
+```
+</details>
+
 The fit shows good closure with an inject Asimov toy, where `r=1` and the other nuisance parameters are set to zero.
 
 We will now run three likelihood scans. The first includes all nuisance parameters. The other two have different groups of nuisance parameters frozen: theory uncertainties frozen and a stat-only scan. For the latter two we load the snapshot of the workspace at the best-fit point (i.e. freeze the nuisance parameters to their postfit values). For the asimov scans this makes very little difference, but it's crucial for the observed fits.
@@ -187,17 +213,24 @@ python3 replaceDataWithPseudoToy.py --inputWSFile Datacard_tutorial_mu_inclusive
 ```
 The `--seed` option is set to ensure that you can reproduce the results, but feel free to change this if you want your own random dataset. The output is a new ROOT file: `DatacardPseudoToy_tutorial_mu_inclusive.root`, where the observed data has been replaced.
 
-We can now use this as input to test the observed fits. In practice it's very similar to the Asimov fitting steps, where we add the option `--doObserved` to the `RunFit.py` commands. Make sure to wait until the jobs have finished before running the next steps.
+We can now use this as input to test the observed fits. In practice it's very similar to the Asimov fitting steps, where we add the option `--doObserved` to the `RunFit.py` commands: 
 ```
 # Best-fit point
 python3 RunFits.py --inputJson inputs_tutorial/inputs_tutorial_bestfit_syst.json --mode mu_inclusive --ext PseudoToy_tutorial --mass 125.38 --batch condor --queue espresso --doObserved
 
 # Likelihood scan with all systematics included
 python3 RunFits.py --inputJson inputs_tutorial/inputs_tutorial_profile1D_syst.json --mode mu_inclusive --ext PseudoToy_tutorial --mass 125.38 --batch condor --queue espresso --doObserved
+```
 
-# Likelihood scans with frozen THU and stat-only (loading snapshot). Can be ran in parallel with the previous step,
+Wait for previous jobs to finish and then submit:
+
+```
+# Likelihood scans with frozen THU and stat-only (loading snapshot)
 python3 RunFits.py --inputJson inputs_tutorial/inputs_tutorial_profile1D_freezeNuisances.json --mode mu_inclusive --ext PseudoToy_tutorial --mass 125.38 --batch condor --queue espresso --snapshotWSFile $PWD/runFitsPseudoToy_tutorial_mu_inclusive/higgsCombine_bestfit_syst_obs_r.MultiDimFit.mH125.38.root --doObserved
+```
 
+And then collect the jobs and plot:
+```
 # Collect the fit outputs (after the jobs have finished)
 python3 CollectFits.py --inputJson inputs_tutorial/inputs_tutorial_profile1D_syst.json --mode mu_inclusive --ext PseudoToy_tutorial --doObserved
 
@@ -220,6 +253,11 @@ In this toy, we observe a small upward fluctuation (22%) with respect to the SM 
 One of the most typical H $\rightarrow\gamma\gamma$ plots to show is the diphoton mass spectrum overlaid with the postfit signal-plus-background model. For example, [this one](https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-19-015/CMS-HIG-19-015_Figure_015-a.pdf) from the Run 2 STXS analysis.
 
 The script to make this plots is in the `Plots` directory. Let's begin by plotting the prefit model on top of the pseudo toy data for the `EBEB_highR9highR9`:
+
+```
+cd ../Plots
+```
+
 ```
 python3 makeSplusBModelPlot.py --inputWSFile ../Combine/DatacardPseudoToy_tutorial_mu_inclusive.root --cats EBEB_highR9highR9 --unblind --doZeroes --ext PseudoToy_tutorial_prefit
 ```
@@ -343,8 +381,12 @@ combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125
 # Each parameter fit
 combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125.38 --doFits --robustFit 1 --setParameterRanges r=0,2 $COMMON_OPTS --job-mode condor --task-name PseudoToy_tutorial_impacts --sub-opts='+JobFlavour = \"espresso\"' --dry-run
 condor_submit -spool condor_PseudoToy_tutorial_impacts.sub
+```
 
-# Collecting outputs (wait till previous jobs have finished)
+Wait until the jobs are finished and then run:
+
+```
+# Collecting outputs
 combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125.38 -o impacts_pseudo.json
 
 python3 ../../Plots/correctImpacts.py --impactsJson impacts_pseudo.json --dropBkgModelParams --frozenParam MH

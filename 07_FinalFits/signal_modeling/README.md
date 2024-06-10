@@ -19,7 +19,7 @@ We recommend to process each era of data-taking separately e.g. 2022preEE and 20
 
 There are two options for which PDF to fit:
 * Sum of up to N Gaussians, where N by default is set to five.
-* Double Crystal Ball functions with an additional Gaussians
+* Double Crystal Ball functions with an additional Gaussian
 
 In this tutorial we will follow the steps to fit the sum of Gaussians. If in your analysis you choose to fit the DCB+Gaussian then you can skip the F-test and add the option `--useDCB` to the `--modeOpts` string when performing the Signal fit. 
 
@@ -52,7 +52,7 @@ signalScriptCfg = {
 
 }
 ```
-Please change the `inputWSDir` value to match the path to your workspaces. 
+Please change the `inputWSDir` value to match the full path to your workspaces. 
 
 The scripts are ran using:
 ```
@@ -247,6 +247,16 @@ $ python3
 >>> w = f.Get("wsig_13TeV")
 >>> w.Print()
 ```
+
+<details>
+<summary>Or in the ROOT interpreter</summary>
+
+```
+$ root -b outdir_tutorial_2022preEE/signalFit/output/
+root [1] wsig_13TeV->Print()
+```
+</details>
+
 
 ## Running the packager
 For the results extraction with Combine, we package the individual ROOT files from the `signalFit` step into a single file per category. 
