@@ -324,11 +324,11 @@ COMMON_OPTS="--cminDefaultMinimizerStrategy 0 --X-rtd MINIMIZER_freezeDisassocia
 ```
 First we run the initial fit:
 ```
-combineTool.py -M Impacts -d Datacard_tutorial_mu_inclusive.root -m 125.38 --doInitialFit --robustFit 1 -t -1 --setParameters r=1 --setParameterRanges r=0,2 $COMMON_OPTS
+combineTool.py -M Impacts -d Datacard_tutorial_mu_inclusive.root -m 125.38 --doInitialFit --robustFit 1 -t -1 --setParameters r=1 --setParameterRanges r=0,2 $COMMON_OPTS --freezeParameters MH
 ```
 When this is finished, we can run the Impacts fits for each model parameter:
 ```
-combineTool.py -M Impacts -d Datacard_tutorial_mu_inclusive.root -m 125.38 --doFits --robustFit 1 -t -1 --setParameters r=1 --setParameterRanges r=0,2 $COMMON_OPTS --job-mode condor --task-name tutorial_impacts --sub-opts='+JobFlavour = \"espresso\"' --dry-run
+combineTool.py -M Impacts -d Datacard_tutorial_mu_inclusive.root -m 125.38 --doFits --robustFit 1 -t -1 --setParameters r=1 --setParameterRanges r=0,2 $COMMON_OPTS --freezeParameters MH --job-mode condor --task-name tutorial_impacts --sub-opts='+JobFlavour = \"espresso\"' --dry-run 
 ```
 We will submit the jobs to the batch. If you are not in an EOS area, then you can remove the `-spool` option:
 ```
@@ -376,10 +376,10 @@ cd ImpactsPseudoToy
 cp ../DatacardPseudoToy_tutorial_mu_inclusive.root .
 
 # Initial fit
-combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125.38 --doInitialFit --robustFit 1 --setParameterRanges r=0,2 $COMMON_OPTS
+combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125.38 --doInitialFit --robustFit 1 --setParameterRanges r=0,2 $COMMON_OPTS --freezeParameters MH
 
 # Each parameter fit
-combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125.38 --doFits --robustFit 1 --setParameterRanges r=0,2 $COMMON_OPTS --job-mode condor --task-name PseudoToy_tutorial_impacts --sub-opts='+JobFlavour = \"espresso\"' --dry-run
+combineTool.py -M Impacts -d DatacardPseudoToy_tutorial_mu_inclusive.root -m 125.38 --doFits --robustFit 1 --setParameterRanges r=0,2 $COMMON_OPTS --freezeParameters MH --job-mode condor --task-name PseudoToy_tutorial_impacts --sub-opts='+JobFlavour = \"espresso\"' --dry-run
 condor_submit -spool condor_PseudoToy_tutorial_impacts.sub
 ```
 
