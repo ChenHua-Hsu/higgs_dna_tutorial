@@ -14,12 +14,13 @@ cmsrel CMSSW_14_1_0_pre4
 cd CMSSW_14_1_0_pre4/src
 cmsenv
 
-COMBINE_TAG=combine_v10
-COMBINEHARVESTER_TAG=main
+COMBINE_TAG=07b56c67ba6e4304b42c3a6cdba710d59c719192
+COMBINEHARVESTER_TAG=94017ba5a3a657f7b88669b1a525b19d34ea41a2
 FINALFIT_TAG=higgsdnafinalfit
 
 # Install Combine with the latest EL9 compatible branch
-git clone -b $COMBINE_TAG https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
+git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
+cd HiggsAnalysis/CombinedLimit && git fetch origin ${COMBINE_TAG} && git checkout ${COMBINE_TAG}
 
 # Install CombineTools in CombineHarvester
 cd ${CMSSW_BASE}/src
@@ -30,7 +31,7 @@ cd CombineHarvester && git fetch origin ${COMBINEHARVESTER_TAG} && git checkout 
 cd ${CMSSW_BASE}/src
 cmsenv
 scram b clean
-scram b -j 8
+scram b -j 16
 
 # Install Final Fit package
 git clone -b $FINALFIT_TAG https://github.com/cms-analysis/flashggFinalFit.git
