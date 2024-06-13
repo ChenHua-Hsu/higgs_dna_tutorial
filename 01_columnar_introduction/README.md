@@ -4,9 +4,9 @@ In this section, we will briefly look at columnar operation via [coffea](https:/
 
 We recommend the use of a **notebook** for interactivity, `coffea_basic.ipynb` will be used in this exercise. This makes it easier to visualize the results obtained at each step.
 
-If [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) does not work for you, you can try the following backup solutions. 
-
 A python script `coffea_basic.py` is also provieded in case it is not possible to set up the notebook environment. `coffea_basic.py` just simply gathers the code from the notebook cells.
+
+So, if [**SWAN**](https://swan.docs.cern.ch/intro/what_is/#what-is-swan) does not work for you, you can try the following backup solutions. 
 
 ## Backup solution 1: Using VSCode to run a python notebook
 
