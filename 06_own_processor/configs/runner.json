@@ -1,0 +1,15 @@
+{
+    "samplejson": "06_samples.json",
+    "workflow": "ownprocessor",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "DataC_2022": ["2022preEE"],
+        "ggh_M-125_preEE": ["2022preEE"],
+        "vbf_M-125_preEE": ["2022preEE"],
+        "vh_M-125_preEE": ["2022preEE"],
+        "tth_M-125_preEE": ["2022preEE"]
+    },
+    "corrections": {},
+    "systematics": {}
+}

@@ -1,0 +1,33 @@
+{
+    "DataC_2022": [
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/15b59f77-2f98-43f6-a18b-c1f32b7344c2.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/1842f0a3-bd49-44e0-bf32-0043175dc50e.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/468c2a60-9cc2-48dc-b5ac-d071ff56497d.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/4c56a9b9-13d0-4cab-b0a7-f38d1716a029.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/58e2b993-f289-4bec-90f5-3f404fe9eeda.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/5f85d987-68c1-4689-94a2-ab7b83642e8d.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/714895a5-cf7a-4d63-8888-b3d26c105361.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/85e37748-90fd-489e-8995-c6f1bb65d7b7.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/89b5526a-07e5-49eb-8e54-4bf2192dfcf0.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/a0e2cae1-165d-4dc2-97d0-fc42e2cbd4ce.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/aa4c5b5e-8169-405f-b693-0805aace3483.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/b827764f-2563-426a-bfd3-faeefe14678a.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/e0b51e6b-df8f-4ad3-ab3b-85f83a7ca05d.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/f637bf1c-746b-4011-9013-e3739f1f5428.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/DataC_2022/fdbfb584-8f25-4309-b6c4-9d3562ef9747.root"
+    ],
+    "ggh_M-125_preEE": [
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/ggh_M-125_preEE/5d677ef6-111a-428f-a78c-7ae0f68fd140.root"
+    ],
+    "tth_M-125_preEE": [
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/tth_M-125_preEE/2705c80b-a8fc-440f-9777-2c9a9c805126.root"
+    ],
+    "vbf_M-125_preEE": [
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/vbf_M-125_preEE/499b0f89-a5a0-42c5-8af2-5898a655d524.root"
+    ],
+    "vh_M-125_preEE": [
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/vh_M-125_preEE/1fe2b7d0-1b4b-4034-9f95-45744d70c888.root",
+        "/eos/cms/store/group/phys_higgs/cmshgg/tutorials/HiggsDNA_FinalFits_2024/HiggsDNA_part/04_base_processor/vh_M-125_preEE/6c6f91b3-c1b8-4b8f-b633-c3dca5fa599d.root"
+    ]
+}
+
