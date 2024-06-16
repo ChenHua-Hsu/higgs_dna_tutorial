@@ -1,0 +1,32 @@
+{
+    "blind_range": [115, 135],
+    "variables": [
+      {
+        "name": "mass",
+        "xlabel": "mass (GeV)",
+        "ylabel": "Events per bin",
+        "hist_range": [100, 180],
+        "n_bins": 80,
+        "normalise_mc_to_data": false,
+        "mc_norm": 1000,
+        "plot_range": [100, 180]
+      },
+      {
+        "name": "lead_pt/mass",
+        "xlabel": "lead_pt/mass",
+        "ylabel": "Events per bin",
+        "hist_range": [0, 1.5],
+        "n_bins": 75,
+        "normalise_mc_to_data": true,
+        "mc_norm": 1,
+        "plot_range": [0, 1.5]
+      }
+    ],
+    "plot_settings": {
+      "legend": true,
+      "ylim_bottom": 0,
+      "cms_label": "Private work",
+      "cms_year": 2022,
+      "cms_com": "13.6"
+    }
+  }

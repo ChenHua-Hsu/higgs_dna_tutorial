@@ -1,0 +1,28 @@
+{
+    "samplejson": "samples.json",
+    "workflow": "dystudies",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "DataC_2022": ["2022preEE"],
+        "ggh_M-125_preEE": ["2022preEE"],
+        "vbf_M-125_preEE": ["2022preEE"],
+        "vh_M-125_preEE": ["2022preEE"],
+        "tth_M-125_preEE": ["2022preEE"]
+    },
+    "corrections": {
+        "DataC_2022": ["Scale"],
+        "ggh_M-125_preEE": ["Pileup", "Smearing", "ElectronVetoSF", "PreselSF", "TriggerSF"],
+        "vbf_M-125_preEE": ["Pileup", "Smearing", "ElectronVetoSF", "PreselSF", "TriggerSF"],
+        "vh_M-125_preEE":  ["Pileup", "Smearing", "ElectronVetoSF", "PreselSF", "TriggerSF"],
+        "tth_M-125_preEE": ["Pileup", "Smearing", "ElectronVetoSF", "PreselSF", "TriggerSF"]
+    },
+    "systematics": {
+        "ggh_M-120_preEE":  [],
+        "ggh_M-125_preEE":  [],
+        "ggh_M-130_preEE":  [],
+        "vbf_M-120_preEE":  [],
+        "vbf_M-125_preEE":  [],
+        "vbf_M-130_preEE":  []
+    }
+}
