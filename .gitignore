@@ -1,2 +1,9 @@
 apptainer-cache
 micromamba_dir
+
+__pycache__
+
+# Part 4 base processor
+04_base_processor/configs/04_samples.json
+04_base_processor/NTuples
+04_base_processor/plots
