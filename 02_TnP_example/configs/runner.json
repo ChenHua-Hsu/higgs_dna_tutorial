@@ -1,0 +1,18 @@
+{
+    "samplejson": "02_samples_local.json",
+    "workflow": "tagandprobe",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "DataC_2022": ["2022preEE"],
+        "DY": ["2022preEE"]
+    },
+    "corrections": {
+        "DataC_2022": [],
+        "DY": []
+    },
+    "systematics": {
+        "DataC_2022": [],
+        "DY": []
+    }
+}
