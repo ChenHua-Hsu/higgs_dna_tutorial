@@ -1,0 +1,25 @@
+process:
+  2022preEE: # year label is added as a postfix for "mc", e.g., ggh_95_2022postEE
+    data:
+      EGammaC:
+        - pqset: DataC_2022
+    mc:
+      DY:
+        - pqset: DY # parquet dataset name
+
+variation:
+  Nominal: nominal # "Nominal: nominal" is always required
+  Smearing_up: Smearing_up
+  Smearing_down: Smearing_down
+
+category:
+  UNTAGGED:
+    cat_filter:
+      - ["tag_pt", ">", -9999.0]
+
+other:
+  input: 03_NTuples
+  output: 03_NTuples_merged
+  step: merge
+  Ecm: 13p6TeV # center-of-mass energy
+  tree_folder: diPhoton
