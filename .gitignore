@@ -1,9 +1,14 @@
 apptainer-cache
 micromamba_dir
+micromamba
 
 __pycache__
 
-# Part 4 base processor
+# Exercise 4 base proessor
 04_base_processor/configs/04_samples.json
 04_base_processor/NTuples
 04_base_processor/plots
+
+# Exercise 5 postprocessing
+05_postprocessing/05_NTuples/
+05_postprocessing/plots/

@@ -1,0 +1,36 @@
+{
+    "cat_dict" : {
+        "EBEB": {
+            "cat_filter": [
+                ["lead_isScEtaEB", "==", true],
+                ["sublead_isScEtaEB", "==", true],
+                ["lead_mvaID", ">", 0.25],
+                ["sublead_mvaID", ">", 0.25]
+            ]
+        },
+        "EBEE": {
+            "cat_filter": [
+                ["lead_isScEtaEB", "==", true],
+                ["sublead_isScEtaEE", "==", true],
+                ["lead_mvaID", ">", 0.25],
+                ["sublead_mvaID", ">", 0.25]
+            ]
+        },
+        "EEEB": {
+            "cat_filter": [
+                ["lead_isScEtaEE", "==", true],
+                ["sublead_isScEtaEB", "==", true],
+                ["lead_mvaID", ">", 0.25],
+                ["sublead_mvaID", ">", 0.25]
+            ]
+        },
+        "EEEE": {
+            "cat_filter": [
+                ["lead_isScEtaEE", "==", true],
+                ["sublead_isScEtaEE", "==", true],
+                ["lead_mvaID", ">", 0.25],
+                ["sublead_mvaID", ">", 0.25]
+            ]
+        }
+    }
+}
