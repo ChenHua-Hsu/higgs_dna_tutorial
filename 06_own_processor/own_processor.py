@@ -465,7 +465,7 @@ class OwnProcessor(HggBaseProcessor):
             #dijets["delta_eta"] = abs(dijets["first_jet"].eta - dijets["second_jet"].eta)
             #dijets["delta_phi"] = dijets.first_jet.delta_phi(dijets.second_jet) # PtEtaPhiMCandidate already has a method from which you can calculate delta phi
             #
-            ## choose the leading dijet combination to save
+            ## choose the dijet combination to save
             ## note the jet collection was already already ordered according to pT in line 415
             ## so selecting the first dijet combination will automatically select the diject combination formed by the two leading-pT jets
             #dijet_pt = self.choose_nth_object_variable(dijets.pt, 0, -999.0)
