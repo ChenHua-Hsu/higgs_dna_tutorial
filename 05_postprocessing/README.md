@@ -89,7 +89,7 @@ rm -r merged
 
 cd ../../HiggsDNA/scripts/postprocessing
 
-python3 prepare_output_file.py --input ../../../05_postprocessing/05_NTuples --merge --cats --syst --catDict ../../../05_postprocessing/configs/category.json --varDict ../../../05_postprocessing/configs/variation.json
+python3 prepare_output_file.py --input ../../../05_postprocessing/05_NTuples --merge --cats --syst --catDict ../../../05_postprocessing/configs/category_eta_r9.json --varDict ../../../05_postprocessing/configs/variation.json
 ```
 
 Another feature of the merging step worth noting is the normalisation of the weights of the events. HiggsDNA saves some metaconditions containing the sum of the generator weights of the full sample in the output, these are necesary to normalise the events to the value of `efficiancy x acceptance` of the selection for each process. FlashggFinalFit takes care afterwards of adding the values of $\sigma$, luminosity and $BR$. This feature can be deactivate rnning the same commands as above with the additional option `--skip-normalisation`.
