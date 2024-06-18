@@ -28,7 +28,7 @@ Do you understand why `fetch.py` works even though this script is not available 
 Then, execute the script, supplying the `txt` file:
 
 ```
-fetch.py --input samples.txt --yolo
+fetch.py --input samples.txt -w Yolo
 ```
 
 Check that `configs/samples.json` has been created in this directory and that it looks sensible.
@@ -49,9 +49,9 @@ You can check your knowledge by thinking about the following questions:
 
 With the ingredient of the sample json, you are ready to NTuplise both data and signal MC in one go.
 
-Before that, we have to make sure that the necessary ingredients are there:
+Before that, we have to make sure that the necessary ingredients are there.
 ```
-python ../HiggsDNA/scripts/pull_files.py --all
+python ../../HiggsDNA/scripts/pull_files.py --all
 ```
 
 Please execute
@@ -86,7 +86,7 @@ You can now use your freshly produced NTuples and plot some of the variables.
 For this, we provide a `plotter.py` script.
 Please read through this script a bit and make sure you roughly understand what is happening.
 Also check `configs/plot_settings.json`. This configuration file contains the settings for the plots and variables you will be plotting. Note that we implemented the possibility to plot ratios of variables, in this case for leading photon pT divided by the diphoton mass.
-Then, execute the script with
+Then, execute the script in `04_base_processor`
 ```
 python plotter.py ./configs/plot_settings.json ./NTuples ./plots
 ```
