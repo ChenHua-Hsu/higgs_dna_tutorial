@@ -1,0 +1,14 @@
+{
+ "argv": [
+  "/eos/home-c/chenhua/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python 3 (ipykernel)",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}

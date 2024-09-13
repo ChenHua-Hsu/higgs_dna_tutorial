@@ -1,0 +1,7 @@
+
+datadir=/eos/home-c/chenhua/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna/share
+xkb_base=/eos/home-c/chenhua/higgsdna_finalfits_tutorial_24/micromamba_dir/envs/higgs-dna/share/X11/xkb
+
+Name: XKeyboardConfig
+Description: X Keyboard configuration data
+Version: 2.42

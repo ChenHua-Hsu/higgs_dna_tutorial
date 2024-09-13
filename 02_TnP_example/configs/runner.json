@@ -1,5 +1,5 @@
 {
-    "samplejson": "02_samples_local.json",
+    "samplejson": "/eos/home-c/chenhua/higgsdna_finalfits_tutorial_24/02_TnP_example/configs/02_samples_local.json",
     "workflow": "tagandprobe",
     "metaconditions": "Era2022_v1",
     "taggers": [],
